@@ -1,0 +1,29 @@
+html{
+	margin-top:30px;
+}
+body{
+	font-family: 'Montserrat', sans-serif;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #4668AD;
+		border-color: #4668AD;
+		padding:15px 30px;
+		border-radius: 3px;
+		text-transform: uppercase;
+		font-size: 13px;
+}
+.btn-primary:hover{
+	 background-color: #774B9E;
+		border-color: #774B9E;
+}
+
+#result{
+    margin:15px 0;
+    padding:15px;
+    font-size:20px;
+    text-align: center;
+    border-top:1px solid #774B9E;
+    background-color: #E8ECF5;
+}

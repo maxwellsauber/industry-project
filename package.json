@@ -1,0 +1,49 @@
+{
+  "name": "industry-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "./node_modules/.bin/env-cmd ./node_modules/.bin/nodemon server.js",
+    "dev:migrate": "./node_modules/.bin/env-cmd ./node_modules/.bin/sequelize db:migrate --env development --config ./config/sequelize.js",
+    "lint": "./node_modules/.bin/eslint --format codeframe .",
+    "lint:pug": "./node_modules/.bin/pug-lint . ",
+    "test": "./node_modules/.bin/env-cmd  ./node_modules/.bin/mocha tests/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxwellsauber/industry-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxwellsauber/industry-project/issues"
+  },
+  "homepage": "https://github.com/maxwellsauber/industry-project#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "sequelize": "^5.21.7",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
+    "babel-watch": "^7.0.0",
+    "concurrently": "^5.2.0",
+    "env-cmd": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.20.0",
+    "nodemon": "^2.0.4",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}

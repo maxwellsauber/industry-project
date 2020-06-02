@@ -40,13 +40,34 @@ module.exports = {
     ])
 
     await queryInterface.bulkInsert('salaries', [
-      { title: 'Corporate Recruiter', hourlyRate: 43.75 },
-      { title: 'Director of Engineering - Hiring Manager', hourlyRate: 113.85 },
-      { title: 'IT Technician', hourlyRate: 10.42 },
-      { title: 'Human Resources Manager', hourlyRate: 55.07 },
-      { title: 'CEO, Executives/Decision-Maker', hourlyRate: 113.62 },
-      { title: 'Peer Worker - Estimated 3 people', hourlyRate: 64.92 },
+      { title: 'Corporate Recruiter', hourlyRate: 32.41, hourlyBenefits: 11.34 },
+      { title: 'Director of Engineering - Hiring Manager', hourlyRate: 84.33, hourlyBenefits: 29.52 },
+      { title: 'IT Technician', hourlyRate: 21.79, hourlyBenefits: 7.63 },
+      { title: 'Human Resources Manager', hourlyRate: 40.79, hourlyBenefits: 14.28 },
+      { title: 'CEO, Executives/Decision-Maker', hourlyRate: 84.16, hourlyBenefits: 29.46 },
+      { title: 'Peer Worker - Estimated 3 people', hourlyRate: 48.09, hourlyBenefits: 16.83 },
+    ])
 
+    await queryInterface.bulkInsert('tasks', [
+      { task: 'R&H', name: 'Position Description', hours: 2, salaryId: 1 },
+      { task: 'R&H', name: 'Posting & Marketing', hours: 5, salaryId: 1 },
+      { task: 'R&H', name: 'Resume Screening', hours: 15, salaryId: 1 },
+      { task: 'R&H', name: 'Internal meetings & Phone Screening', hours: 20, salaryId: 1 },
+      { task: 'R&H', name: 'Position Description', hours: 2, salaryId: 2 },
+      { task: 'R&H', name: 'Interviewing', hours: 24, salaryId: 2 },
+      { task: 'OnBoarding', name: 'Technical Training', hours: 20, salaryId: 2 },
+      { task: 'OnBoarding', name: 'Orientation', hours: 2, salaryId: 3 },
+      { task: 'Exit', name: 'Conducting Exit Interview', hours: 2, salaryId: 4 },
+      { task: 'Exit', name: 'Completing Exit Paperwork', hours: 2, salaryId: 4 },
+      { task: 'R&H', name: 'Position Description', hours: 2, salaryId: 4 },
+      { task: 'R&H', name: 'References, Background and Certification/ Degree checks', hours: 4, salaryId: 4 },
+      { task: 'R&H', name: 'Interviewing', hours: 12, salaryId: 4 },
+      { task: 'R&H', name: 'Benefits Packages, Relocation Coordination', hours: 2, salaryId: 4 },
+      { task: 'OnBoarding', name: 'Orientation', hours: 5, salaryId: 4 },
+      { task: 'R&H', name: 'Interviewing', hours: 9, salaryId: 5 },
+      { task: 'R&H', name: 'Overtime to Cover Employee Vacancy', hours: 64, salaryId: 6 },
+      { task: 'R&H', name: 'Interviewing', hours: 9, salaryId: 6 },
+      { task: 'OnBoarding', name: 'Technical Training', hours: 30, salaryId: 6 },
     ])
 
     return queryInterface.bulkInsert('signingBonus', [
@@ -93,6 +114,8 @@ module.exports = {
     await queryInterface.bulkDelete('recruiterFees')
 
     await queryInterface.bulkDelete('salaries')
+
+    await queryInterface.bulkDelete('tasks')
 
     return queryInterface.bulkDelete('signingBonus')
   },

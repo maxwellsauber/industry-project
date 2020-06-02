@@ -48,6 +48,23 @@ module.exports = {
       id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
       title: { type: Sequelize.STRING },
       hourlyRate: { type: Sequelize.DECIMAL(10, 2) },
+      hourlyBenefits: { type: Sequelize.DECIMAL(10, 2) },
+      createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
+      updatedAt: {
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
+      },
+      deletedAt: { type: Sequelize.DATE },
+
+    })
+
+    await queryInterface.createTable('tasks', {
+
+      id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+      task: { type: Sequelize.STRING },
+      name: { type: Sequelize.STRING },
+      hours: { type: Sequelize.INTEGER },
+      salaryId: { type: Sequelize.INTEGER },
       createdAt: { type: Sequelize.DATE, defaultValue: Sequelize.literal('CURRENT_TIMESTAMP') },
       updatedAt: {
         type: Sequelize.DATE,
@@ -80,6 +97,8 @@ module.exports = {
     await queryInterface.dropTable('recruiterFees')
 
     await queryInterface.dropTable('salaries')
+
+    await queryInterface.dropTable('tasks')
 
     return queryInterface.dropTable('signingBonus')
   },

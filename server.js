@@ -3,6 +3,7 @@ const express = require('express')
 // const path = require('path')
 
 const { getAllLeads } = require('./controllers/leads')
+const { getAllSigningBonuses } = require('./controllers/signingBonus')
 
 const app = express()
 
@@ -10,6 +11,7 @@ const app = express()
 // app.use(express.static('public'))
 
 app.get('/', getAllLeads)
+app.get('/bonus', getAllSigningBonuses)
 
 app.all('*', (request, response) => response.status(404).send('Page Not Found'))
 

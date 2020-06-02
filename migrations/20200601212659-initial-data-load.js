@@ -15,6 +15,33 @@ module.exports = {
       },
     ])
 
+    await queryInterface.bulkInsert('postingFees', [
+      { postingName: 'Jobs.com', value: 398 },
+      { postingName: 'Glassdoor', value: 498 },
+      { postingName: 'Monster', value: 399 },
+      { postingName: 'Career Builder', value: 398 },
+      { postingName: 'Simply Hired', value: 0 },
+      { postingName: 'LinkedIn', value: 990 },
+      { postingName: 'Dice', value: 395 },
+      { postingName: 'SnagAJob', value: 178 },
+      { postingName: 'Craigslist', value: 45 },
+      { postingName: 'Indeed', value: 300 },
+      { postingName: 'Workable', value: 198 },
+      { postingName: 'Proven', value: 203 },
+      { postingName: 'ZipRecruiter', value: 178 },
+
+    ])
+    await queryInterface.bulkInsert('recruiterFees', [
+      { majorDiscipline: 'Finance and Banking', avgPercent: 0.21, avgSalary: 166250 },
+      { majorDiscipline: 'Scientific', avgPercent: 0.20, avgSalary: 127466 },
+      { majorDiscipline: 'Engineering', avgPercent: 0.23, avgSalary: 105831 },
+      { majorDiscipline: 'IT/Information Systems/Data Processing', avgPercent: 0.22, avgSalary: 98437 },
+      { majorDiscipline: 'Sales and Marketing', avgPercent: 0.20, avgSalary: 101485 },
+
+
+    ])
+
+
     return queryInterface.bulkInsert('signingBonus', [
       { companyName: 'Facebook', value: 45708 },
       { companyName: 'Amazon', value: 41340 },
@@ -53,6 +80,10 @@ module.exports = {
       return queryInterface.dropTable('users');
     */
     await queryInterface.bulkDelete('leads')
+
+    await queryInterface.bulkDelete('postingFees')
+
+    await queryInterface.bulkDelete('recruiterFees')
 
     return queryInterface.bulkDelete('signingBonus')
   },

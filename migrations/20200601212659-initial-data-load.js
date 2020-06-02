@@ -37,10 +37,17 @@ module.exports = {
       { majorDiscipline: 'Engineering', avgPercent: 0.23, avgSalary: 105831 },
       { majorDiscipline: 'IT/Information Systems/Data Processing', avgPercent: 0.22, avgSalary: 98437 },
       { majorDiscipline: 'Sales and Marketing', avgPercent: 0.20, avgSalary: 101485 },
-
-
     ])
 
+    await queryInterface.bulkInsert('salaries', [
+      { title: 'Corporate Recruiter', hourlyRate: 43.75 },
+      { title: 'Director of Engineering - Hiring Manager', hourlyRate: 113.85 },
+      { title: 'IT Technician', hourlyRate: 10.42 },
+      { title: 'Human Resources Manager', hourlyRate: 55.07 },
+      { title: 'CEO, Executives/Decision-Maker', hourlyRate: 113.62 },
+      { title: 'Peer Worker - Estimated 3 people', hourlyRate: 64.92 },
+
+    ])
 
     return queryInterface.bulkInsert('signingBonus', [
       { companyName: 'Facebook', value: 45708 },
@@ -84,6 +91,8 @@ module.exports = {
     await queryInterface.bulkDelete('postingFees')
 
     await queryInterface.bulkDelete('recruiterFees')
+
+    await queryInterface.bulkDelete('salaries')
 
     return queryInterface.bulkDelete('signingBonus')
   },

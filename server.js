@@ -6,6 +6,7 @@ const { getAllLeads } = require('./controllers/leads')
 const { getAllSigningBonuses } = require('./controllers/signingBonus')
 const { getAllPostingFees } = require('./controllers/postingFees')
 const { getAllRecruiterFees } = require('./controllers/recruiterFees')
+const { getAllSalaries } = require('./controllers/salaries')
 
 
 const app = express()
@@ -17,6 +18,7 @@ app.get('/', getAllLeads)
 app.get('/bonus', getAllSigningBonuses)
 app.get('/postingFees', getAllPostingFees)
 app.get('/recruiterFees', getAllRecruiterFees)
+app.get('/salaries', getAllSalaries)
 
 
 app.all('*', (request, response) => response.status(404).send('Page Not Found'))

@@ -36,6 +36,8 @@ AdministrativeTOTAL = #Exit + #RecruitmentAndHiring + #Onboarding
 
 ---------------- Salaries -----------
 NOTE - ALL OAV - These should be checkboxes to toggle position on or off
+NOTE - ON inital build, each of these COULD be hard coded to a specific dollar ammount
+
 CorporateRecruiter =
   #Exit
     ConductingExitInterview = 0
@@ -120,7 +122,7 @@ CorporateRecruiter =
     Orientation = 0
   #####Administrative Salaries #######
 
-  TotalSalary = 7 - ??????? This seems wrong
+  TotalSalary = DOLHourlySalary * 1.75
   TotalBenefits = (TotalSalary)0.35
   (SEE FORMULAS BELOW)
 
@@ -142,7 +144,7 @@ CorporateRecruiter =
     Orientation = 0
   #####Administrative Salaries #######
 
-  TotalSalary = 4 - ??????? This seems wrong
+  TotalSalary = DOLHourlySalary
   TotalBenefits = (TotalSalary)0.35
   (SEE FORMULAS BELOW)
 
@@ -164,3 +166,52 @@ CorporateRecruiter =
   TechnicalTrainingSalary = TechnicalTraining(TotalBenefits + TotalSalary)
   OrientationSalary = Orientation(TotalBenefits + TotalSalary)
   ################################ END Administrative Salaries FORMULAS #########################
+
+  ---------------- Summary -----------
+  #Exit
+   - Seperation Pay
+    - Direct: =Administrative!B10
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Personnel Expenses
+    - Direct: [input]???
+    - Hidden: N/A
+    - Total: Direct + Hidden
+      
+  - Prospective Costs
+    - Direct: N/A
+    - Hidden: =SUM(Administrative!B12:B13)
+    - Total: Direct + Hidden
+
+  - Prospective Costs
+    - Direct: N/A
+    - Hidden: ?????????? NOTHING THERE
+    - Total: Direct + Hidden ????????????????
+
+#R&H
+  - Personnel Expenses
+    - Direct: =Administrative!B17+(SUM(Salaries!V18:AA18))+IF(SUM(Salaries!G12:Salaries!M12)=0,B17,SUM(Salaries!V12:AA12))
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Advertising
+    - Direct: =Administrative!B16
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Sigin-On Bonuses/Relocation
+    - Direct: =Administrative!B19+Administrative!B18
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Prouctivity Losses
+    - Direct: N/A
+    - Hidden: =(Productivity!B17)
+    - Total: Direct + Hidden
+
+#Onboarding
+  - Personnel Expenses
+    - Direct: Hard Coded? No Formula??????????????????????????
+    - Hidden: N/A
+    - Total: Direct + Hidden

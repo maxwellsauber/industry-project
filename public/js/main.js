@@ -88,15 +88,13 @@ function calculatorSubmit(event) {
     travelAndRegistrationFees +
     outsideTrainer +
     workshopMaterials
-
+  // if (document.getElementById('EXAMPLE-CHECKBOX').checked === true) { EXAMPLEPOSITION = HOURS * (H-SALARY + (H-SALARY * 0.35)) }
   if (document.getElementById('salary-recruiter').checked === true) { salaryRecruiter = 42 * (32.41 + (32.41 * 0.35)) }
   if (document.getElementById('salary-director').checked === true) { salaryDirector = 46 * (84.33 + (84.33 * 0.35)) }
   if (document.getElementById('salary-technician').checked === true) { salaryTechnician = 2 * (21.79 + (21.79 * 0.35)) }
   if (document.getElementById('salary-hr-manager').checked === true) { salaryHRManager = 29 * (40.79 + (40.79 * 0.35)) }
-  // eslint-disable-next-line max-len
-  if (document.getElementById('salary-ceo').checked === true) { salaryCEO = 9 * ((1.75 * (DOLAnnualSalary / 2080)) + ((1.75 * (DOLAnnualSalary / 2080)) * 0.35)) }
-  // eslint-disable-next-line max-len
-  if (document.getElementById('salary-peer-worker').checked === true) { salaryPeerWorker = 103 * ((DOLAnnualSalary / 2080) + ((DOLAnnualSalary / 2080) * 0.35)) }
+  if (document.getElementById('salary-ceo').checked === true) { salaryCEO = 9 * ((1.75 * (DOLAnnualSalary / 2080)) + ((1.75 * (DOLAnnualSalary / 2080)) * 0.35)) } // eslint-disable-line max-len
+  if (document.getElementById('salary-peer-worker').checked === true) { salaryPeerWorker = 103 * ((DOLAnnualSalary / 2080) + ((DOLAnnualSalary / 2080) * 0.35)) } // eslint-disable-line max-len
 
   totalSalaries = salaryRecruiter +
     salaryDirector +
@@ -115,7 +113,6 @@ function calculatorSubmit(event) {
     totalSalaries
 
   document.getElementById('result').innerHTML = formatter.format(calculation)
-
   document.getElementById('seperation-pay').innerHTML = formatter.format(seperationPay)
   document.getElementById('productivity-loss-total').innerHTML = formatter.format(productivityLossTotal)
   document.getElementById('administraive-total').innerHTML = formatter.format(administrativeTotal)

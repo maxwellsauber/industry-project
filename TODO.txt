@@ -1,4 +1,5 @@
 #### things to do ####
+- Add field validation
 - Calculate OAV costs based on result (subtract from result)
 - POST basic information to postLead /postLead
 - Print Summary to PDF

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Avenues - Costing Instrument</title>
+  <meta name="discription" content="Basic Information Tab of the Open Avenues WebApp">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link href="css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="container body">
+    <div class="row">
+      <div class="col-md-4"><img src="img/logo.png" class="img-fluid" alt="Open Avenues Logo"></div>
+      <div class="col-md-8">
+        <p class="lead text-right">Open Avenues</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <h1>Costing Instrument</h1>
+        <br>
+
+        <form id="oa-calculator">
+          <h3>Basic Information</h2>
+            <hr>
+
+            <!-- <div class="form-group row">
+              <label for="time" class="col-md-4 col-sm-12 col-form-label">Time Period</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="time" name="time" placeholder="Use Date-Rage plugin" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="company-industry" class="col-md-4 col-sm-12 col-form-label">Company Industry</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="company-industry" name="company-industry" placeholder="Company Industry" type="text"
+                  class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="EIR-spec" class="col-md-4 col-sm-12 col-form-label">Expert-in-Residence (EIR) Occupational
+                Specialty</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="EIR-spec" name="EIR-spec" placeholder="Expert-in-Residence (EIR) Occupational Specialty"
+                  type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="EIR-job" class="col-md-4 col-sm-12 col-form-label">Expert-in-Residence (EIR) Job Title</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="EIR-job" name="EIR-job" placeholder="Expert-in-Residence (EIR) Job Title" type="text"
+                  class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="NAICS-code" class="col-md-4 col-sm-12 col-form-label">Labor NAICS Code</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="NAICS-code" name="NAICS-code" placeholder="Labor NAICS Code" type="text"
+                  class="form-control">
+              </div>
+            </div> -->
+
+
+            <div class="form-group row">
+              <label for="DOL-annual-salary" class="col-md-4 col-sm-12 col-form-label">DOL Annual
+                Salary</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="DOL-annual-salary" name="DOL-annual-salary" placeholder="DOL Annual Salary" type="text"
+                  class="form-control" value="100000">
+              </div>
+            </div>
+
+            <!-- <div class="form-group row">
+              <label for="DOL-hourly-salary" class="col-md-4 col-sm-12 col-form-label">DOL Hourly Salary</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="DOL-hourly-salary" name="DOL-hourly-salary" placeholder="DOL Hourly Salary" type="text"
+                  class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="OESSOC-code" class="col-md-4 col-sm-12 col-form-label">OES/SOC Code</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="OESSOC-code" name="OESSOC-code" placeholder="OES/SOC Code" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="EIR-degree" class="col-md-4 col-sm-12 col-form-label">EIR Degree</label>
+              <div class="col-md-8 col-sm-12">
+                <input id="EIR-degree" name="EIR-degree" placeholder="EIR Degree" type="text" class="form-control">
+              </div>
+            </div>
+          -->
+            <!--  Recruiter fee -->
+            <div class="form-group row">
+              <label class="col-md-4 col-sm-12">Is the Employer using an external corporate recruiter?</label>
+              <div class="col-md-8 col-sm-12">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input name="using-external-recruiter" id="using-external-recruiter" type="radio"
+                    class="custom-control-input" value="yes">
+                  <label for="using-external-recruiter" class="custom-control-label">Yes</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input name="using-external-recruiter" id="using-external-recruiter_1" type="radio"
+                    class="custom-control-input" value="no" checked>
+                  <label for="using-external-recruiter_1" class="custom-control-label">No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-4 col-sm-12">Is the Employer offering a sign-on bonus?</label>
+              <div class="col-md-8 col-sm-12">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input name="employee-siginon" id="employee-siginon_0" type="radio" class="custom-control-input"
+                    value="yes">
+                  <label for="employee-siginon_0" class="custom-control-label">Yes</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input name="employee-siginon" id="employee-siginon_1" type="radio" class="custom-control-input"
+                    value="no" checked>
+                  <label for="employee-siginon_1" class="custom-control-label">No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-md-4 col-sm-12">Is the Employer offering a relocation bonus?</label>
+              <div class="col-md-8 col-sm-12">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input name="employer-relocation-bonus" id="employer-relocation-bonus_0" type="radio"
+                    class="custom-control-input" value="yes">
+                  <label for="employer-relocation-bonus_0" class="custom-control-label">Yes</label>
+                </div>
+
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input name="employer-relocation-bonus" id="employer-relocation-bonus_1" type="radio"
+                    class="custom-control-input" value="no" checked>
+                  <label for="employer-relocation-bonus_1" class="custom-control-label">No</label>
+                </div>
+              </div>
+            </div>
+
+
+            <h3>Productivity</h3>
+            <hr>
+            <div class="form-group row">
+              <label for="staff-morale-loss" class="col-md-4 col-sm-12 col-form-label">Staff Morale (Lower due to
+                loss)</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="staff-morale-loss" name="staff-morale-loss" placeholder="Staff Morale Loss" type="text"
+                  class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="production-delays" class="col-md-4 col-sm-12 col-form-label">Production Delays</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="production-delays" name="production-delays" placeholder="Production Delays" type="text"
+                  class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="lost-customers" class="col-md-4 col-sm-12 col-form-label">
+                Lost Customers</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="lost-customers" name="lost-customers" placeholder="Lost Customers" type="text"
+                  class="form-control" value="100">
+              </div>
+            </div>
+
+
+            <h3>Administrative</h3>
+            <hr>
+            <div class="form-group row">
+              <label for="outsourced-work" class="col-md-4 col-sm-12 col-form-label">Outsourced Work
+                (Consultants)</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="outsourced-work" name="outsourced-work" placeholder="Outsourced Work" type="text"
+                  class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="estimate-unemployment-taxes-increase" class="col-md-4 col-sm-12 col-form-label">
+                Unemployment taxes increase</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="estimate-unemployment-taxes-increase" name="estimate-unemployment-taxes-increase"
+                  placeholder="Outsourced Work" type="text" class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="possible-legal-claims" class="col-md-4 col-sm-12 col-form-label">Possible Legal Claims</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="possible-legal-claims" name="possible-legal-claims" placeholder="Possible Legal Claims"
+                  type="text" class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="travel-and-registration-fees" class="col-md-4 col-sm-12 col-form-label">Travel & Registration
+                Fees</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="travel-and-registration-fees" name="travel-and-registration-fees"
+                  placeholder="Travel & Registration Fees" type="text" class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="outside-trainer" class="col-md-4 col-sm-12 col-form-label">Outside Trainer</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="outside-trainer" name="outside-trainer" placeholder="Outside Trainer" type="text"
+                  class="form-control" value="100">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="workshop-materials" class="col-md-4 col-sm-12 col-form-label">Workshop Materials</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+                <input id="workshop-materials" name="workshop-materials" placeholder="Workshop Materials" type="text"
+                  class="form-control" value="100">
+              </div>
+            </div>
+
+            <h3>Salaries</h3>
+            <hr>
+            <div class="form-group row">
+              <div class="col-md-4 col-sm-12">Please select the roles involved in your hiring
+                process</div>
+              <div class="col-md-8 col-sm-12">
+                <div class="checkbox">
+                  <label for="salary-recruiter">
+                    <input type="checkbox" name="salary-recruiter" id="salary-recruiter" value="true">
+                    Corporate Recruiter
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="salary-director">
+                    <input type="checkbox" name="salary-director" id="salary-director" value="true">
+                    Director of Engineering (Hiring Manager)
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="salary-technician">
+                    <input type="checkbox" name="salary-technician" id="salary-technician" value="true">
+                    IT Technician
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="salary-hr-manager">
+                    <input type="checkbox" name="salary-hr-manager" id="salary-hr-manager" value="true">
+                    Human Resources Manager
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="salary-ceo">
+                    <input type="checkbox" name="salary-ceo" id="salary-ceo" value="true">
+                    CEO, Executives/Decision-Maker
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label for="salary-peer-worker">
+                    <input type="checkbox" name="Salaries" id="salary-peer-worker" value="true">
+                    Peer Worker (Estimated 3 people)
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="form-group row">
+              <div class="col-12">
+                <button name="submit" type="submit" class="btn btn-primary col-md-12">Submit</button>
+              </div>
+            </div>
+        </form>
+
+        <div id="result"></div>
+
+        <div>Seperation Pay: <span id="seperation-pay">0</span></div>
+        <div>Productivity Loss Total: <span id="productivity-loss-total">0</span></div>
+        <div>Administrative Total: <span id="administraive-total">0</span></div>
+        <div>Salaries Total: <span id="salaries-total">0</span></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/211798aa69.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@ R&H = Recruitement and RecruitmentAndHiring
 
 ------ Productivity -----------
 # Exit 
-  (Salary/52*2).14 + StaffMorale[input] + ProductionDelays[input]
+  (Salary/52*2).15 + StaffMorale[input] + ProductionDelays[input]
 
 # R&H
   ((Salary*.45)/365)DaysVacant[input]
@@ -37,6 +37,7 @@ AdministrativeTOTAL = #Exit + #RecruitmentAndHiring + #Onboarding
 ---------------- Salaries -----------
 NOTE - ALL OAV - These should be checkboxes to toggle position on or off
 NOTE - ON inital build, each of these COULD be hard coded to a specific dollar ammount
+NOTE - STORE Salary TOTALS
 
 CorporateRecruiter =
   #Exit

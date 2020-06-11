@@ -1,10 +1,10 @@
 const leads = (connection, sequelize) => connection.define('leads', {
   id: { type: sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-  firstName: { type: sequelize.STRING, allowNull: false },
-  lastName: { type: sequelize.STRING, allowNull: false },
-  email: { type: sequelize.STRING, allowNull: false },
-  timeStart: { type: sequelize.DATEONLY },
-  timeEnd: { type: sequelize.DATEONLY },
+  firstName: { type: sequelize.STRING },
+  lastName: { type: sequelize.STRING },
+  email: { type: sequelize.STRING },
+  timeStart: { type: sequelize.STRING },
+  timeEnd: { type: sequelize.STRING },
   companyIndustry: { type: sequelize.STRING },
   EIRSpecialty: { type: sequelize.STRING },
   EIRJobTitle: { type: sequelize.STRING },
@@ -14,9 +14,9 @@ const leads = (connection, sequelize) => connection.define('leads', {
   weeklyHours: { type: sequelize.INTEGER },
   OESSOCCode: { type: sequelize.STRING },
   EIRDegree: { type: sequelize.STRING },
-  isExternalRecruiter: { type: sequelize.TINYINT },
-  isOfferedSigningBonus: { type: sequelize.TINYINT },
-  isOfferedRelocationBonus: { type: sequelize.TINYINT },
+  isExternalRecruiter: { type: sequelize.STRING },
+  isOfferedSigningBonus: { type: sequelize.STRING },
+  isOfferedRelocationBonus: { type: sequelize.STRING },
 }, {
   defaultScope: { attributes: { exclude: ['deletedAt', 'createdAt', 'updatedAt'] } },
 }, {

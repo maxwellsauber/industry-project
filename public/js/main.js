@@ -3,6 +3,29 @@ const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 })
+/* eslint-disable */
+jQuery(document).ready(function ($) {
+  if (window.jQuery().datetimepicker) {
+    $('#timeStart').datetimepicker({ format: 'MM-DD-YYYY' });
+    $('#timeEnd').datetimepicker({ format: 'MM-DD-YYYY' });
+  }
+});
+
+const doc = new jsPDF()
+const specialElementHandlers = {
+  '#editor': function (element, renderer) {
+    return true
+  }
+}
+
+$('#print').click(function () {
+  doc.fromHTML($('#result-inner').html(), 15, 15, {
+    'width': 170,
+    'elementHandlers': specialElementHandlers
+  });
+  doc.save('open-avenues-result.pdf');
+})
+/* eslint-disable */
 
 // Prevent the browser defeault, handle the calculator event
 function calculatorSubmit(event) {
@@ -43,11 +66,18 @@ function calculatorSubmit(event) {
   let salaryCEO = 0
   let salaryPeerWorker = 0
   let totalSalaries = 0
+  let programCost = 0
 
   DOLAnnualSalary = Number(document.getElementById('DOL-annual-salary').value)
-  seperationPay = (DOLAnnualSalary / 366) * 14
-  const hasRecruiterFee = document.querySelector('input[name="using-external-recruiter"]:checked').value
-  if (hasRecruiterFee === 'yes') { recruiterFee = DOLAnnualSalary * 0.22 } else { recruiterFee = 0 }
+  seperationPay = (DOLAnnualSalary / 52) * 2
+  const hasRecruiterFee = document.querySelector('input[name="visibleIsExternalRecruiter"]:checked').value
+  if (hasRecruiterFee === 'yes') {
+    document.getElementById('isExternalRecruiter').value = 'yes'
+    recruiterFee = DOLAnnualSalary * 0.22
+  } else {
+    document.getElementById('isExternalRecruiter').value = 'no'
+    recruiterFee = 0
+  }
 
   const hasSigningBonus = document.querySelector('input[name="employer-relocation-bonus"]:checked').value
   if (hasSigningBonus === 'yes') { signingBonus = 20238.46 } else { signingBonus = 0 }
@@ -96,6 +126,8 @@ function calculatorSubmit(event) {
   if (document.getElementById('salary-ceo').checked === true) { salaryCEO = 9 * ((1.75 * (DOLAnnualSalary / 2080)) + ((1.75 * (DOLAnnualSalary / 2080)) * 0.35)) } // eslint-disable-line max-len
   if (document.getElementById('salary-peer-worker').checked === true) { salaryPeerWorker = 103 * ((DOLAnnualSalary / 2080) + ((DOLAnnualSalary / 2080) * 0.35)) } // eslint-disable-line max-len
 
+  programCost = 5710 + (1300 * 12)
+
   totalSalaries = salaryRecruiter +
     salaryDirector +
     salaryTechnician +
@@ -112,11 +144,37 @@ function calculatorSubmit(event) {
     administrativeTotal +
     totalSalaries
 
-  document.getElementById('result').innerHTML = formatter.format(calculation)
+  const programSavings = calculation - programCost
+
+  document.getElementById('DOLHourlySalary').value = DOLAnnualSalary / 2080
+
+  document.getElementById('result-calcuation').innerHTML = formatter.format(calculation)
   document.getElementById('seperation-pay').innerHTML = formatter.format(seperationPay)
   document.getElementById('productivity-loss-total').innerHTML = formatter.format(productivityLossTotal)
   document.getElementById('administraive-total').innerHTML = formatter.format(administrativeTotal)
   document.getElementById('salaries-total').innerHTML = formatter.format(totalSalaries)
+
+  document.getElementById('program-cost').innerHTML = formatter.format(programCost)
+  document.getElementById('program-savings').innerHTML = formatter.format(programSavings)
+
+  document.getElementById('result').style.display = 'block'
+
+  document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'end' })
+
+  const xhttp = new XMLHttpRequest()
+  const data = {}
+  const form = document.getElementById('oa-calculator')
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < form.length; i++) {
+    const input = form[i]
+    if (input.name) {
+      data[input.name] = input.value
+    }
+  }
+
+  xhttp.open('POST', '/leads', true)
+  xhttp.setRequestHeader('Content-type', 'application/json')
+  xhttp.send(JSON.stringify(data))
 }// end Submit event handler
 
 // Add an event listener to the calculator

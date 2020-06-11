@@ -27,3 +27,22 @@ body{
     border-top:1px solid #774B9E;
     background-color: #E8ECF5;
 }
+
+#result{ display: none; }
+#result #summary{ font-size: 12px; }
+
+#result #cost{ 
+	font-size: 14px;
+	padding: 10px;
+}
+
+#result #savings{ 
+	font-size: 16px; 
+	background-color: #fff; 
+	padding:10px; 
+	border-radius: 5px;
+	-webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+#print{ margin-top:15px; }

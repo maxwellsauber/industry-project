@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/date-time.css" rel="stylesheet">
 
 </head>
 
@@ -29,42 +30,80 @@
         <form id="oa-calculator">
           <h3>Basic Information</h2>
             <hr>
+            <div class="form-group row">
+              <label for="first-name" class="col-md-4 col-sm-12 col-form-label">First Name</label>
+              <div class="col-md-8 col-sm-12 ">
+                <input id="first-name" name="firstName" placeholder="Jane" type="text" class="form-control"
+                  value="Jane">
+              </div>
+            </div>
 
-            <!-- <div class="form-group row">
-              <label for="time" class="col-md-4 col-sm-12 col-form-label">Time Period</label>
+            <div class="form-group row">
+              <label for="last-name" class="col-md-4 col-sm-12 col-form-label">Last Name</label>
+              <div class="col-md-8 col-sm-12 ">
+                <input id="last-name" name="lastName" placeholder="Doe" type="text" class="form-control" value="Doe">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="email" class="col-md-4 col-sm-12 col-form-label">Email</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@</span>
+                </div>
+                <input type="email" id="email" name="email" placeholder="jane@doe.com" type="text" class="form-control"
+                  required>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="time" class="col-md-4 col-sm-12 col-form-label">Start Date</label>
               <div class="col-md-8 col-sm-12">
-                <input id="time" name="time" placeholder="Use Date-Rage plugin" type="text" class="form-control">
+                <div class="input-group date" id="datetimepicker">
+                  <input type="text" class="form-control" name="timeStart" placeholder="Start Date" id="timeStart" />
+                </div>
               </div>
             </div>
             <div class="form-group row">
+              <label for="time" class="col-md-4 col-sm-12 col-form-label">End Date</label>
+              <div class="col-md-8 col-sm-12">
+                <div class="input-group date" id="datetimepicker">
+                  <input type="text" class="form-control" name="timeEnd" placeholder="End Date" id="timeEnd" />
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group row">
               <label for="company-industry" class="col-md-4 col-sm-12 col-form-label">Company Industry</label>
               <div class="col-md-8 col-sm-12">
-                <input id="company-industry" name="company-industry" placeholder="Company Industry" type="text"
+                <input id="company-industry" name="companyIndustry" placeholder="Company Industry" type="text"
                   class="form-control">
               </div>
             </div>
+
             <div class="form-group row">
               <label for="EIR-spec" class="col-md-4 col-sm-12 col-form-label">Expert-in-Residence (EIR) Occupational
                 Specialty</label>
               <div class="col-md-8 col-sm-12">
-                <input id="EIR-spec" name="EIR-spec" placeholder="Expert-in-Residence (EIR) Occupational Specialty"
+                <input id="EIR-spec" name="EIRSpecialty" placeholder="Expert-in-Residence (EIR) Occupational Specialty"
                   type="text" class="form-control">
               </div>
             </div>
             <div class="form-group row">
               <label for="EIR-job" class="col-md-4 col-sm-12 col-form-label">Expert-in-Residence (EIR) Job Title</label>
               <div class="col-md-8 col-sm-12">
-                <input id="EIR-job" name="EIR-job" placeholder="Expert-in-Residence (EIR) Job Title" type="text"
+                <input id="EIR-job" name="EIRJobTitle" placeholder="Expert-in-Residence (EIR) Job Title" type="text"
                   class="form-control">
               </div>
             </div>
             <div class="form-group row">
               <label for="NAICS-code" class="col-md-4 col-sm-12 col-form-label">Labor NAICS Code</label>
               <div class="col-md-8 col-sm-12">
-                <input id="NAICS-code" name="NAICS-code" placeholder="Labor NAICS Code" type="text"
+                <input id="NAICS-code" name="NAICSLaborCode" placeholder="Labor NAICS Code" type="text"
                   class="form-control">
               </div>
-            </div> -->
+            </div>
 
 
             <div class="form-group row">
@@ -74,46 +113,44 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="DOL-annual-salary" name="DOL-annual-salary" placeholder="DOL Annual Salary" type="text"
-                  class="form-control" value="100000">
+                <input type="number" id="DOL-annual-salary" name="DOLAnnualSalary" placeholder="DOL Annual Salary"
+                  type="text" class="form-control" maxlength="10" required>
               </div>
             </div>
 
-            <!-- <div class="form-group row">
-              <label for="DOL-hourly-salary" class="col-md-4 col-sm-12 col-form-label">DOL Hourly Salary</label>
-              <div class="col-md-8 col-sm-12">
-                <input id="DOL-hourly-salary" name="DOL-hourly-salary" placeholder="DOL Hourly Salary" type="text"
-                  class="form-control">
-              </div>
-            </div>
+            <input type="hidden" name="DOLHourlySalary" id="DOLHourlySalary">
+            <!-- hourly salary should be calculated, no input -->
+
             <div class="form-group row">
               <label for="OESSOC-code" class="col-md-4 col-sm-12 col-form-label">OES/SOC Code</label>
               <div class="col-md-8 col-sm-12">
-                <input id="OESSOC-code" name="OESSOC-code" placeholder="OES/SOC Code" type="text" class="form-control">
+                <input id="OESSOC-code" name="OESSOCCode" placeholder="OES/SOC Code" type="text" class="form-control">
               </div>
             </div>
             <div class="form-group row">
               <label for="EIR-degree" class="col-md-4 col-sm-12 col-form-label">EIR Degree</label>
               <div class="col-md-8 col-sm-12">
-                <input id="EIR-degree" name="EIR-degree" placeholder="EIR Degree" type="text" class="form-control">
+                <input id="EIR-degree" name="EIRDegree" placeholder="EIR Degree" type="text" class="form-control">
               </div>
             </div>
-          -->
+
             <!--  Recruiter fee -->
+            <!-- ALWAUS SUBMITS THE LAST IN THE GROUP, But works fine for the c-->
             <div class="form-group row">
               <label class="col-md-4 col-sm-12">Is the Employer using an external corporate recruiter?</label>
               <div class="col-md-8 col-sm-12">
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input name="using-external-recruiter" id="using-external-recruiter" type="radio"
+                  <input name="visibleIsExternalRecruiter" id="using-external-recruiter-yes" type="radio"
                     class="custom-control-input" value="yes">
-                  <label for="using-external-recruiter" class="custom-control-label">Yes</label>
+                  <label for="using-external-recruiter-yes" class="custom-control-label">Yes</label>
                 </div>
 
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input name="using-external-recruiter" id="using-external-recruiter_1" type="radio"
+                  <input name="visibleIsExternalRecruiter" id="using-external-recruiter-no" type="radio"
                     class="custom-control-input" value="no" checked>
-                  <label for="using-external-recruiter_1" class="custom-control-label">No</label>
+                  <label for="using-external-recruiter-no" class="custom-control-label">No</label>
                 </div>
+                <input type="hidden" name="isExternalRecruiter" id="isExternalRecruiter">
               </div>
             </div>
 
@@ -131,6 +168,7 @@
                     value="no" checked>
                   <label for="employee-siginon_1" class="custom-control-label">No</label>
                 </div>
+
               </div>
             </div>
 
@@ -161,8 +199,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="staff-morale-loss" name="staff-morale-loss" placeholder="Staff Morale Loss" type="text"
-                  class="form-control" value="100">
+                <input type="number" id="staff-morale-loss" name="staff-morale-loss" placeholder="Staff Morale Loss"
+                  type="text" class="form-control" value="0">
               </div>
             </div>
 
@@ -172,8 +210,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="production-delays" name="production-delays" placeholder="Production Delays" type="text"
-                  class="form-control" value="100">
+                <input type="number" id="production-delays" name="production-delays" placeholder="Production Delays"
+                  type="text" class="form-control" value="0">
               </div>
             </div>
 
@@ -184,11 +222,10 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="lost-customers" name="lost-customers" placeholder="Lost Customers" type="text"
-                  class="form-control" value="100">
+                <input type="number" id="lost-customers" name="lost-customers" placeholder="Lost Customers" type="text"
+                  class="form-control" value="0">
               </div>
             </div>
-
 
             <h3>Administrative</h3>
             <hr>
@@ -199,8 +236,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="outsourced-work" name="outsourced-work" placeholder="Outsourced Work" type="text"
-                  class="form-control" value="100">
+                <input type="number" id="outsourced-work" name="outsourced-work" placeholder="Outsourced Work"
+                  type="text" class="form-control" value="0">
               </div>
             </div>
 
@@ -211,8 +248,9 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="estimate-unemployment-taxes-increase" name="estimate-unemployment-taxes-increase"
-                  placeholder="Outsourced Work" type="text" class="form-control" value="100">
+                <input type="number" id="estimate-unemployment-taxes-increase"
+                  name="estimate-unemployment-taxes-increase" placeholder="Outsourced Work" class="form-control"
+                  value="0">
               </div>
             </div>
 
@@ -222,8 +260,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="possible-legal-claims" name="possible-legal-claims" placeholder="Possible Legal Claims"
-                  type="text" class="form-control" value="100">
+                <input type="number" id="possible-legal-claims" name="possible-legal-claims"
+                  placeholder="Possible Legal Claims" class="form-control" value="0">
               </div>
             </div>
 
@@ -234,8 +272,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="travel-and-registration-fees" name="travel-and-registration-fees"
-                  placeholder="Travel & Registration Fees" type="text" class="form-control" value="100">
+                <input type="number" id="travel-and-registration-fees" name="travel-and-registration-fees"
+                  placeholder="Travel & Registration Fees" class="form-control" value="0">
               </div>
             </div>
 
@@ -245,8 +283,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="outside-trainer" name="outside-trainer" placeholder="Outside Trainer" type="text"
-                  class="form-control" value="100">
+                <input type="number" id="outside-trainer" name="outside-trainer" placeholder="Outside Trainer"
+                  type="text" class="form-control" value="0">
               </div>
             </div>
 
@@ -256,15 +294,15 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">$</span>
                 </div>
-                <input id="workshop-materials" name="workshop-materials" placeholder="Workshop Materials" type="text"
-                  class="form-control" value="100">
+                <input type="number" id="workshop-materials" name="workshop-materials" placeholder="Workshop Materials"
+                  type="text" class="form-control" value="0">
               </div>
             </div>
 
             <h3>Salaries</h3>
             <hr>
             <div class="form-group row">
-              <div class="col-md-4 col-sm-12">Please select the roles involved in your hiring
+              <div class="col-md-4 col-sm-12">Roles involved in your hiring
                 process</div>
               <div class="col-md-8 col-sm-12">
                 <div class="checkbox">
@@ -314,12 +352,20 @@
             </div>
         </form>
 
-        <div id="result"></div>
+        <div id="result">
+          <div id="result-inner"> Total Cost of Employee Loss: <span id="result-calcuation"></span>
+            <div id="summary">
+              <div>Seperation Loss: <span id="seperation-pay">0</span></div>
+              <div>Productivity Loss: <span id="productivity-loss-total">0</span></div>
+              <div>Administrative Loss: <span id="administraive-total">0</span></div>
+              <div>Salary Loss: <span id="salaries-total">0</span></div>
+            </div>
+            <div id="cost">Program Cost <span id="program-cost">0</span></div>
+            <div id="savings">Program Savings <span id="program-savings">0</span></div>
+          </div>
+          <button id="print" class="btn btn-secondary btn-sm">Save Results as PDF</button>
+        </div>
 
-        <div>Seperation Pay: <span id="seperation-pay">0</span></div>
-        <div>Productivity Loss Total: <span id="productivity-loss-total">0</span></div>
-        <div>Administrative Total: <span id="administraive-total">0</span></div>
-        <div>Salaries Total: <span id="salaries-total">0</span></div>
       </div>
     </div>
   </div>
@@ -327,7 +373,34 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+  <script src="js/date.js"></script>
   <script src="js/main.js"></script>
 </body>
+<!-- 
+                             \
+                              \
+                               \\
+                                \\
+                                 >\/7
+                             _.-(6'  \
+                            (=___._/` \
+                                 )  \ |
+                                /   / |
+                               /    > /
+                              j    < _\
+                          _.-' :      ``.
+                          \ r=._\        `.
+                         <`\\_  \         .`-.
+                          \ r-7  `-. ._  ' .  `\
+                           \`,      `-.`7  7)   )
+                            \/         \|  \'  / `-._
+                                       ||    .'
+                                        \\  (
+                                         >\  >
+                                     ,.-' >.'
+                                    <.'_.''
+                                      <'
+-->
 
 </html>

@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/date-time.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -26,36 +25,31 @@
       <div class="col-md-10 offset-md-1">
         <h1>Costing Instrument</h1>
         <br>
-
         <form id="oa-calculator">
           <h3>Basic Information</h2>
             <hr>
             <div class="form-group row">
               <label for="first-name" class="col-md-4 col-sm-12 col-form-label">First Name</label>
               <div class="col-md-8 col-sm-12 ">
-                <input id="first-name" name="firstName" placeholder="Jane" type="text" class="form-control"
-                  value="Jane">
+                <input id="first-name" name="firstName" placeholder="First Name" type="text" class="form-control">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="last-name" class="col-md-4 col-sm-12 col-form-label">Last Name</label>
               <div class="col-md-8 col-sm-12 ">
-                <input id="last-name" name="lastName" placeholder="Doe" type="text" class="form-control" value="Doe">
+                <input id="last-name" name="lastName" placeholder="Last Name" type="text" class="form-control">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="email" class="col-md-4 col-sm-12 col-form-label">Email</label>
               <div class="col-md-8 col-sm-12 input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">@</span>
                 </div>
-                <input type="email" id="email" name="email" placeholder="jane@doe.com" type="text" class="form-control"
-                  required>
+                <input type="email" id="email" name="email" placeholder="email@email.com" type="text"
+                  class="form-control" required>
               </div>
             </div>
-
             <div class="form-group row">
               <label for="time" class="col-md-4 col-sm-12 col-form-label">Start Date</label>
               <div class="col-md-8 col-sm-12">
@@ -70,10 +64,8 @@
                 <div class="input-group date" id="datetimepicker">
                   <input type="text" class="form-control" name="timeEnd" placeholder="End Date" id="timeEnd" />
                 </div>
-
               </div>
             </div>
-
             <div class="form-group row">
               <label for="company-industry" class="col-md-4 col-sm-12 col-form-label">Company Industry</label>
               <div class="col-md-8 col-sm-12">
@@ -81,7 +73,6 @@
                   class="form-control">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="EIR-spec" class="col-md-4 col-sm-12 col-form-label">Expert-in-Residence (EIR) Occupational
                 Specialty</label>
@@ -104,8 +95,6 @@
                   class="form-control">
               </div>
             </div>
-
-
             <div class="form-group row">
               <label for="DOL-annual-salary" class="col-md-4 col-sm-12 col-form-label">DOL Annual
                 Salary</label>
@@ -117,10 +106,14 @@
                   type="text" class="form-control" maxlength="10" required>
               </div>
             </div>
-
+            <div class="form-group row">
+              <label for="weekly-hours" class="col-md-4 col-sm-12 col-form-label">Weekly Hours</label>
+              <div class="col-md-8 col-sm-12 input-group">
+                <input type="number" id="weeklyHours" name="weeklyHours" placeholder="Weekly Hours" value="40"
+                  type="text" class="form-control" maxlength="10" required>
+              </div>
+            </div>
             <input type="hidden" name="DOLHourlySalary" id="DOLHourlySalary">
-            <!-- hourly salary should be calculated, no input -->
-
             <div class="form-group row">
               <label for="OESSOC-code" class="col-md-4 col-sm-12 col-form-label">OES/SOC Code</label>
               <div class="col-md-8 col-sm-12">
@@ -133,9 +126,7 @@
                 <input id="EIR-degree" name="EIRDegree" placeholder="EIR Degree" type="text" class="form-control">
               </div>
             </div>
-
             <!--  Recruiter fee -->
-            <!-- ALWAUS SUBMITS THE LAST IN THE GROUP, But works fine for the c-->
             <div class="form-group row">
               <label class="col-md-4 col-sm-12">Is the Employer using an external corporate recruiter?</label>
               <div class="col-md-8 col-sm-12">
@@ -144,7 +135,6 @@
                     class="custom-control-input" value="yes">
                   <label for="using-external-recruiter-yes" class="custom-control-label">Yes</label>
                 </div>
-
                 <div class="custom-control custom-radio custom-control-inline">
                   <input name="visibleIsExternalRecruiter" id="using-external-recruiter-no" type="radio"
                     class="custom-control-input" value="no" checked>
@@ -153,43 +143,38 @@
                 <input type="hidden" name="isExternalRecruiter" id="isExternalRecruiter">
               </div>
             </div>
-
             <div class="form-group row">
               <label class="col-md-4 col-sm-12">Is the Employer offering a sign-on bonus?</label>
               <div class="col-md-8 col-sm-12">
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input name="employee-siginon" id="employee-siginon_0" type="radio" class="custom-control-input"
-                    value="yes">
-                  <label for="employee-siginon_0" class="custom-control-label">Yes</label>
+                  <input name="visibleIsOfferedSigningBonus" id="visibleIsOfferedSigningBonus_yes" type="radio"
+                    class="custom-control-input" value="yes">
+                  <label for="visibleIsOfferedSigningBonus_yes" class="custom-control-label">Yes</label>
                 </div>
-
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input name="employee-siginon" id="employee-siginon_1" type="radio" class="custom-control-input"
-                    value="no" checked>
-                  <label for="employee-siginon_1" class="custom-control-label">No</label>
+                  <input name="visibleIsOfferedSigningBonus" id="visibleIsOfferedSigningBonus_no" type="radio"
+                    class="custom-control-input" value="no" checked>
+                  <label for="visibleIsOfferedSigningBonus_no" class="custom-control-label">No</label>
                 </div>
-
               </div>
+              <input type="hidden" name="isOfferedSigningBonus" id="isOfferedSigningBonus">
             </div>
-
             <div class="form-group row">
               <label class="col-md-4 col-sm-12">Is the Employer offering a relocation bonus?</label>
               <div class="col-md-8 col-sm-12">
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input name="employer-relocation-bonus" id="employer-relocation-bonus_0" type="radio"
+                  <input name="visibleIsOfferedRelocationBonus" id="visibleIsOfferedRelocationBonus_yes" type="radio"
                     class="custom-control-input" value="yes">
-                  <label for="employer-relocation-bonus_0" class="custom-control-label">Yes</label>
+                  <label for="visibleIsOfferedRelocationBonus_yes" class="custom-control-label">Yes</label>
                 </div>
-
                 <div class="custom-control custom-radio custom-control-inline">
-                  <input name="employer-relocation-bonus" id="employer-relocation-bonus_1" type="radio"
+                  <input name="visibleIsOfferedRelocationBonus" id="visibleIsOfferedRelocationBonus_no" type="radio"
                     class="custom-control-input" value="no" checked>
-                  <label for="employer-relocation-bonus_1" class="custom-control-label">No</label>
+                  <label for="visibleIsOfferedRelocationBonus_no" class="custom-control-label">No</label>
                 </div>
               </div>
+              <input type="hidden" name="isOfferedRelocationBonus" id="isOfferedRelocationBonus">
             </div>
-
-
             <h3>Productivity</h3>
             <hr>
             <div class="form-group row">
@@ -203,7 +188,6 @@
                   type="text" class="form-control" value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="production-delays" class="col-md-4 col-sm-12 col-form-label">Production Delays</label>
               <div class="col-md-8 col-sm-12 input-group">
@@ -214,7 +198,6 @@
                   type="text" class="form-control" value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="lost-customers" class="col-md-4 col-sm-12 col-form-label">
                 Lost Customers</label>
@@ -226,7 +209,6 @@
                   class="form-control" value="0">
               </div>
             </div>
-
             <h3>Administrative</h3>
             <hr>
             <div class="form-group row">
@@ -240,7 +222,6 @@
                   type="text" class="form-control" value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="estimate-unemployment-taxes-increase" class="col-md-4 col-sm-12 col-form-label">
                 Unemployment taxes increase</label>
@@ -253,7 +234,6 @@
                   value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="possible-legal-claims" class="col-md-4 col-sm-12 col-form-label">Possible Legal Claims</label>
               <div class="col-md-8 col-sm-12 input-group">
@@ -264,7 +244,6 @@
                   placeholder="Possible Legal Claims" class="form-control" value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="travel-and-registration-fees" class="col-md-4 col-sm-12 col-form-label">Travel & Registration
                 Fees</label>
@@ -276,7 +255,6 @@
                   placeholder="Travel & Registration Fees" class="form-control" value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="outside-trainer" class="col-md-4 col-sm-12 col-form-label">Outside Trainer</label>
               <div class="col-md-8 col-sm-12 input-group">
@@ -287,7 +265,6 @@
                   type="text" class="form-control" value="0">
               </div>
             </div>
-
             <div class="form-group row">
               <label for="workshop-materials" class="col-md-4 col-sm-12 col-form-label">Workshop Materials</label>
               <div class="col-md-8 col-sm-12 input-group">
@@ -298,7 +275,6 @@
                   type="text" class="form-control" value="0">
               </div>
             </div>
-
             <h3>Salaries</h3>
             <hr>
             <div class="form-group row">
@@ -343,15 +319,12 @@
                 </div>
               </div>
             </div>
-
-            <!-- Submit -->
             <div class="form-group row">
               <div class="col-12">
                 <button name="submit" type="submit" class="btn btn-primary col-md-12">Submit</button>
               </div>
             </div>
         </form>
-
         <div id="result">
           <div id="result-inner"> Total Cost of Employee Loss: <span id="result-calcuation"></span>
             <div id="summary">
@@ -365,7 +338,6 @@
           </div>
           <button id="print" class="btn btn-secondary btn-sm">Save Results as PDF</button>
         </div>
-
       </div>
     </div>
   </div>

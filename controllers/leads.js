@@ -19,13 +19,17 @@ const postLead = async (request, response) => {
     DOLAnnualSalary,
     DOLHourlySalary,
     isExternalRecruiter,
-    timeStart, timeEnd,
+    isOfferedSigningBonus,
+    isOfferedRelocationBonus,
+    timeStart,
+    timeEnd,
     companyIndustry,
     EIRSpecialty,
     EIRJobTitle,
     OESSOCCode,
     NAICSLaborCode,
     EIRDegree,
+    weeklyHours,
   } = request.body
   if (!DOLAnnualSalary || !email || !lastName) {
     return response
@@ -40,6 +44,8 @@ const postLead = async (request, response) => {
     DOLAnnualSalary,
     DOLHourlySalary,
     isExternalRecruiter,
+    isOfferedSigningBonus,
+    isOfferedRelocationBonus,
     timeStart,
     timeEnd,
     companyIndustry,
@@ -48,6 +54,7 @@ const postLead = async (request, response) => {
     OESSOCCode,
     NAICSLaborCode,
     EIRDegree,
+    weeklyHours,
   })
   return response.send(newLead)
   //  } catch (error) {

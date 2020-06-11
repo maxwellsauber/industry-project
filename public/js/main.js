@@ -3,29 +3,6 @@ const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 })
-/* eslint-disable */
-jQuery(document).ready(function ($) {
-  if (window.jQuery().datetimepicker) {
-    $('#timeStart').datetimepicker({ format: 'MM-DD-YYYY' });
-    $('#timeEnd').datetimepicker({ format: 'MM-DD-YYYY' });
-  }
-});
-
-const doc = new jsPDF()
-const specialElementHandlers = {
-  '#editor': function (element, renderer) {
-    return true
-  }
-}
-
-$('#print').click(function () {
-  doc.fromHTML($('#result-inner').html(), 15, 15, {
-    'width': 170,
-    'elementHandlers': specialElementHandlers
-  });
-  doc.save('open-avenues-result.pdf');
-})
-/* eslint-disable */
 
 // Prevent the browser defeault, handle the calculator event
 function calculatorSubmit(event) {
@@ -79,12 +56,23 @@ function calculatorSubmit(event) {
     recruiterFee = 0
   }
 
-  const hasSigningBonus = document.querySelector('input[name="employer-relocation-bonus"]:checked').value
-  if (hasSigningBonus === 'yes') { signingBonus = 20238.46 } else { signingBonus = 0 }
+  const hasSigningBonus = document.querySelector('input[name="visibleIsOfferedSigningBonus"]:checked').value
+  if (hasSigningBonus === 'yes') {
+    document.getElementById('isOfferedSigningBonus').value = 'yes'
+    signingBonus = 20238.46
+  } else {
+    document.getElementById('isOfferedSigningBonus').value = 'no'
+    signingBonus = 0
+  }
 
-  const hasRelocationBonus = document.querySelector('input[name="employee-siginon"]:checked').value
-  if (hasRelocationBonus === 'yes') { relocationBonus = 2100 } else { relocationBonus = 0 }
-
+  const hasRelocationBonus = document.querySelector('input[name="visibleIsOfferedRelocationBonus"]:checked').value
+  if (hasRelocationBonus === 'yes') {
+    document.getElementById('isOfferedRelocationBonus').value = 'yes'
+    relocationBonus = 2100
+  } else {
+    document.getElementById('isOfferedRelocationBonus').value = 'no'
+    relocationBonus = 0
+  }
   // Hidden Costs
   // Productivity -Exit
   staffMoraleLoss = Number(document.getElementById('staff-morale-loss').value)
@@ -179,3 +167,27 @@ function calculatorSubmit(event) {
 
 // Add an event listener to the calculator
 document.getElementById('oa-calculator').addEventListener('submit', calculatorSubmit)
+
+/* eslint-disable */
+jQuery(document).ready(function ($) {
+  if (window.jQuery().datetimepicker) {
+    $('#timeStart').datetimepicker({ format: 'MM-DD-YYYY' });
+    $('#timeEnd').datetimepicker({ format: 'MM-DD-YYYY' });
+  }
+});
+
+const doc = new jsPDF()
+const specialElementHandlers = {
+  '#editor': function (element, renderer) {
+    return true
+  }
+}
+
+$('#print').click(function () {
+  doc.fromHTML($('#result-inner').html(), 15, 15, {
+    'width': 170,
+    'elementHandlers': specialElementHandlers
+  });
+  doc.save('open-avenues-result.pdf');
+})
+/* eslint-disable */

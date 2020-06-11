@@ -1,7 +1,3 @@
 #### things to do ####
-- Add field validation
-- Calculate OAV costs based on result (subtract from result)
-- FINISH- ADD DATA - POST basic information to postLead /postLead
-- Print Summary to PDF
-- Show/Hide summary block with additional data
-  - Format result block (make it useful)
+- PDF - Make it nice?
+- CSV ? NPM is lame

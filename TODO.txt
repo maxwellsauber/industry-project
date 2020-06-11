@@ -1,0 +1,3 @@
+#### things to do ####
+- PDF - Make it nice?
+- CSV ? NPM is lame

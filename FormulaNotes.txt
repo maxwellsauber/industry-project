@@ -1,0 +1,218 @@
+####### TERMS #####
+OAV = Open Avenues Provided Value - From Database
+R&H = Recruitement and RecruitmentAndHiring
+#####################
+
+------ Productivity -----------
+# Exit 
+  (Salary/52*2).15 + StaffMorale[input] + ProductionDelays[input]
+
+# R&H
+  ((Salary*.45)/365)DaysVacant[input]
+
+# Onboarding
+  ((0.15*Salary)/365)*120
+
+#ProductivityLossTotal = #Exit + #R&H + #Onboarding
+
+------ Administrative --------
+
+#Exit
+Outsourced[input] + Consultants = (Salary/52)*2
+
+--Prospective Costs[label]
+ EstimatedUnemploymentTaxsIncrease[input] + PossibleLegalClaims[inpit]
+
+#RecruitmentAndHiring
+?????????? AdvertisingCosts =SUM('Job Posting Advertising'!B2:B14)
+?????????? RecruiterFee =IF('Basic Info'!C13="Yes",0.25*B6,SUM(Salaries!S12:Salaries!S12:AC12))
+RelocationCost =$21000 (IF CHECKED YES ON BASIC INFO)
+?????????? SignOnBonus = =IF('Basic Info'!C14="Yes",'Average Signing Bonus Calc.'!B30,0) (IF CHECKED YES ON BASIC INFO)
+
+#Onboarding
+ TravelAndRegistrationFees[input] + OutsideTrainer + WorkshopMaterials
+
+AdministrativeTOTAL = #Exit + #RecruitmentAndHiring + #Onboarding
+
+---------------- Salaries -----------
+NOTE - ALL OAV - These should be checkboxes to toggle position on or off
+NOTE - ON inital build, each of these COULD be hard coded to a specific dollar ammount
+NOTE - STORE Salary TOTALS
+
+CorporateRecruiter =
+  #Exit
+    ConductingExitInterview = 0
+    CompletingPaperwork = 0
+    OvertimeToCoverEmployeeVacancy = 0
+  #R&H
+    PositionDescription = 2
+    PostingAndMarketing = 5
+    ResumeScreening = 15
+    InternalMeetingsAndPhoneScreenings = 20
+    ReferencesBackgroundAndCertificationDegreeChecks = 0
+    Interviewing = 0
+    BenefitsPackagesRelocationCoordination = 0
+  #Onboarding
+    TechnicalTraining = 0
+    Orientation = 0
+  #####Administrative Salaries #######
+
+  TotalSalary = 32.41
+  TotalBenefits = (TotalSalary)0.35
+  (SEE FORMULAS BELOW)
+
+  Director of Engineering (HiringManager) =
+  #Exit
+    ConductingExitInterview = 0
+    CompletingPaperwork = 0
+    OvertimeToCoverEmployeeVacancy = 0
+  #R&H
+    PositionDescription = 2
+    PostingAndMarketing = 0
+    ResumeScreening = 0
+    InternalMeetingsAndPhoneScreenings = 0
+    ReferencesBackgroundAndCertificationDegreeChecks = 0
+    Interviewing = 24
+    BenefitsPackagesRelocationCoordination = 0
+  #Onboarding
+    TechnicalTraining = 20
+    Orientation = 0
+  #####Administrative Salaries #######
+
+  TotalSalary = 84.33
+  TotalBenefits = (TotalSalary)0.35
+  (SEE FORMULAS BELOW)
+
+  Human Resources Manager =
+  #Exit
+    ConductingExitInterview = 2
+    CompletingPaperwork = 2
+    OvertimeToCoverEmployeeVacancy = 0
+  #R&H
+    PositionDescription = 2
+    PostingAndMarketing = 0
+    ResumeScreening = 0
+    InternalMeetingsAndPhoneScreenings = 0
+    ReferencesBackgroundAndCertificationDegreeChecks = 4
+    Interviewing = 12
+    BenefitsPackagesRelocationCoordination = 2
+  #Onboarding
+    TechnicalTraining = 0
+    Orientation = 5
+  #####Administrative Salaries #######
+
+  TotalSalary = 40.79
+  TotalBenefits = (TotalSalary)0.35
+  (SEE FORMULAS BELOW)
+
+  CEO, Executives/DecisionMaker =
+  #Exit
+    ConductingExitInterview = 0
+    CompletingPaperwork = 0
+    OvertimeToCoverEmployeeVacancy = 0
+  #R&H
+    PositionDescription = 0
+    PostingAndMarketing = 0
+    ResumeScreening = 0
+    InternalMeetingsAndPhoneScreenings = 0
+    ReferencesBackgroundAndCertificationDegreeChecks = 0
+    Interviewing = 9
+    BenefitsPackagesRelocationCoordination = 0
+  #Onboarding
+    TechnicalTraining = 0
+    Orientation = 0
+  #####Administrative Salaries #######
+
+  TotalSalary = DOLHourlySalary * 1.75
+  TotalBenefits = (TotalSalary)0.35
+  (SEE FORMULAS BELOW)
+
+  Peer Worker (Estimated 3 People) =
+  #Exit
+    ConductingExitInterview = 0
+    CompletingPaperwork = 0
+    OvertimeToCoverEmployeeVacancy = 64
+  #R&H
+    PositionDescription = 0
+    PostingAndMarketing = 0
+    ResumeScreening = 0
+    InternalMeetingsAndPhoneScreenings = 0
+    ReferencesBackgroundAndCertificationDegreeChecks = 0
+    Interviewing = 9
+    BenefitsPackagesRelocationCoordination = 0
+  #Onboarding
+    TechnicalTraining = 30
+    Orientation = 0
+  #####Administrative Salaries #######
+
+  TotalSalary = DOLHourlySalary
+  TotalBenefits = (TotalSalary)0.35
+  (SEE FORMULAS BELOW)
+
+  ################################ Administrative Salaries FORMULAS #########################
+  #Exit
+  ConductingExitInterviewSalary = ConductingExitInterview(TotalSalary + TotalBenefits)
+  CompletingExitPaperworkSalary = ConductingExitInterview(TotalSalary + TotalBenefits)
+  OvertimeToCoverEmployeeVacancySalary = OvertimeToCoverEmployeeVacancy(TotalSalary + TotalBenefits)
+
+  #R&H
+  PositionDescriptionSalary = PositionDescription(TotalSalary + TotalBenefits)
+  PostingAndMarketingSalary = PostingAndMarketing(TotalSalary + TotalBenefits)
+  ResumeScreeningSalary = PostingAndMarketing(TotalBenefits + TotalSalary)
+  InternalMeetingsAndPhoneScreeningsSalary = InternalMeetingsAndPhoneScreenings(TotalBenefits + TotalSalary)
+  ReferencesBackgroundAndCertificationDegreeChecksSalary = ReferencesBackgroundAndCertificationDegreeChecks(TotalBenefits + TotalSalary)
+  InterviewingSalary = InterviewingSalary(TotalBenefits + TotalSalary)
+
+  #Onboarding
+  TechnicalTrainingSalary = TechnicalTraining(TotalBenefits + TotalSalary)
+  OrientationSalary = Orientation(TotalBenefits + TotalSalary)
+  ################################ END Administrative Salaries FORMULAS #########################
+
+  ---------------- Summary -----------
+  #Exit
+   - Seperation Pay
+    - Direct: =Administrative!B10
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Personnel Expenses
+    - Direct: [input]???
+    - Hidden: N/A
+    - Total: Direct + Hidden
+      
+  - Prospective Costs
+    - Direct: N/A
+    - Hidden: =SUM(Administrative!B12:B13)
+    - Total: Direct + Hidden
+
+  - Prospective Costs
+    - Direct: N/A
+    - Hidden: ?????????? NOTHING THERE
+    - Total: Direct + Hidden ????????????????
+
+#R&H
+  - Personnel Expenses
+    - Direct: =Administrative!B17+(SUM(Salaries!V18:AA18))+IF(SUM(Salaries!G12:Salaries!M12)=0,B17,SUM(Salaries!V12:AA12))
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Advertising
+    - Direct: =Administrative!B16
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Sigin-On Bonuses/Relocation
+    - Direct: =Administrative!B19+Administrative!B18
+    - Hidden: N/A
+    - Total: Direct + Hidden
+
+  - Prouctivity Losses
+    - Direct: N/A
+    - Hidden: =(Productivity!B17)
+    - Total: Direct + Hidden
+
+#Onboarding
+  - Personnel Expenses
+    - Direct: Hard Coded? No Formula??????????????????????????
+    - Hidden: N/A
+    - Total: Direct + Hidden

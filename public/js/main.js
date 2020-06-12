@@ -1,10 +1,9 @@
-// USD currency formatter.
+// USD currency formatter
 const formatter = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',
 })
 
-// Prevent the browser defeault, handle the calculator event
 function calculatorSubmit(event) {
   event.preventDefault()
 
@@ -35,7 +34,7 @@ function calculatorSubmit(event) {
   let outsideTrainer = 0
   let workshopMaterials = 0
   let administrativeTotal = 0
-  // Salaries
+  // salaries
   let salaryRecruiter = 0
   let salaryDirector = 0
   let salaryTechnician = 0
@@ -73,27 +72,27 @@ function calculatorSubmit(event) {
     document.getElementById('isOfferedRelocationBonus').value = 'no'
     relocationBonus = 0
   }
-  // Hidden Costs
-  // Productivity -Exit
+  // hidden costs
+  // productivity - exit
   staffMoraleLoss = Number(document.getElementById('staff-morale-loss').value)
   productionDelays = Number(document.getElementById('production-delays').value)
   employeeProductivityLoss = ((DOLAnnualSalary / 52) * 2) * 0.15
   productivityExitTotal = staffMoraleLoss + productionDelays + employeeProductivityLoss
-  // Productivity - RNH
+  // productivity - RNH
   RNHLostCustomers = Number(document.getElementById('lost-customers').value)
   RNHVacancy = ((0.45 * (DOLAnnualSalary / 365)) * 60) // 60 is the average vancy
   productivityRNHTotal = RNHLostCustomers + RNHVacancy
-  // Productivity Onboarding
+  // productivity onboarding
   produductivityOnboarding = ((0.15 * DOLAnnualSalary) / 365) * 60
-  // Productivity Total
+  // productivity total
   productivityLossTotal = productivityExitTotal + productivityRNHTotal + produductivityOnboarding
 
-  // ADMINISTRATIVE - exit
+  // administrative - exit
   outsourcedWork = Number(document.getElementById('outsourced-work').value)
   administrativeSeperationPay = (DOLAnnualSalary / 52) * 2
   estimateUnemploymentTaxesIncrease = Number(document.getElementById('outsourced-work').value)
   possibleLegalClaims = Number(document.getElementById('possible-legal-claims').value)
-  administrativeAdvertisingFees = 4180 // This is for one posting across major job search sites.
+  administrativeAdvertisingFees = 4180 // posting across job search sites
   travelAndRegistrationFees = Number(document.getElementById('travel-and-registration-fees').value)
   outsideTrainer = Number(document.getElementById('outside-trainer').value)
   workshopMaterials = Number(document.getElementById('workshop-materials').value)
@@ -106,7 +105,7 @@ function calculatorSubmit(event) {
     travelAndRegistrationFees +
     outsideTrainer +
     workshopMaterials
-  // if (document.getElementById('EXAMPLE-CHECKBOX').checked === true) { EXAMPLEPOSITION = HOURS * (H-SALARY + (H-SALARY * 0.35)) }
+
   if (document.getElementById('salary-recruiter').checked === true) { salaryRecruiter = 42 * (32.41 + (32.41 * 0.35)) }
   if (document.getElementById('salary-director').checked === true) { salaryDirector = 46 * (84.33 + (84.33 * 0.35)) }
   if (document.getElementById('salary-technician').checked === true) { salaryTechnician = 2 * (21.79 + (21.79 * 0.35)) }
@@ -171,16 +170,13 @@ document.getElementById('oa-calculator').addEventListener('submit', calculatorSu
 /* eslint-disable */
 jQuery(document).ready(function ($) {
   if (window.jQuery().datetimepicker) {
-    $('#timeStart').datetimepicker({ format: 'MM-DD-YYYY' });
-    $('#timeEnd').datetimepicker({ format: 'MM-DD-YYYY' });
+    $('#timeStart, #timeEnd').datetimepicker({ format: 'MM-DD-YYYY' });
   }
-});
+})
 
 const doc = new jsPDF()
 const specialElementHandlers = {
-  '#editor': function (element, renderer) {
-    return true
-  }
+  '#editor': function (element, renderer) { return true }
 }
 
 $('#print').click(function () {

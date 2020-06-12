@@ -134,18 +134,14 @@ function calculatorSubmit(event) {
   const programSavings = calculation - programCost
 
   document.getElementById('DOLHourlySalary').value = DOLAnnualSalary / 2080
-
   document.getElementById('result-calcuation').innerHTML = formatter.format(calculation)
   document.getElementById('seperation-pay').innerHTML = formatter.format(seperationPay)
   document.getElementById('productivity-loss-total').innerHTML = formatter.format(productivityLossTotal)
   document.getElementById('administraive-total').innerHTML = formatter.format(administrativeTotal)
   document.getElementById('salaries-total').innerHTML = formatter.format(totalSalaries)
-
   document.getElementById('program-cost').innerHTML = formatter.format(programCost)
   document.getElementById('program-savings').innerHTML = formatter.format(programSavings)
-
   document.getElementById('result').style.display = 'block'
-
   document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'end' })
 
   const xhttp = new XMLHttpRequest()
@@ -164,7 +160,6 @@ function calculatorSubmit(event) {
   xhttp.send(JSON.stringify(data))
 }// end Submit event handler
 
-// Add an event listener to the calculator
 document.getElementById('oa-calculator').addEventListener('submit', calculatorSubmit)
 
 /* eslint-disable */
@@ -175,15 +170,10 @@ jQuery(document).ready(function ($) {
 })
 
 const doc = new jsPDF()
-const specialElementHandlers = {
-  '#editor': function (element, renderer) { return true }
-}
+const specialElementHandlers = { '#editor': function (element, renderer) { return true } }
 
 $('#print').click(function () {
-  doc.fromHTML($('#result-inner').html(), 15, 15, {
-    'width': 170,
-    'elementHandlers': specialElementHandlers
-  });
-  doc.save('open-avenues-result.pdf');
+  doc.fromHTML($('#result-inner').html())
+  doc.save('open-avenues-result.pdf')
 })
 /* eslint-disable */
